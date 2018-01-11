@@ -1,4 +1,4 @@
-package service;
+package es.luciajorda.comparadorprecios.service;
 
 import java.util.List;
 
@@ -10,11 +10,12 @@ import es.luciajorda.comparadorprecios.repostitory.ProductoRepository;
 
 @Service
 public class ProductoService {
-
+	
 	@Autowired
 	private ProductoRepository productoRepository;
 	
 	public ProductoService() {}
+	
 	public Producto createProducto(Producto producto) {
 		return this.productoRepository.save(producto);
 	}
@@ -38,5 +39,5 @@ public class ProductoService {
 	public void deleteProducto(long id) {
 		this.productoRepository.delete(id);
 	}
-	
+
 }
