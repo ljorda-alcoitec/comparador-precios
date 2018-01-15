@@ -2,9 +2,14 @@ package es.luciajorda.comparadorprecios.rest;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.luciajorda.comparadorprecios.domain.Producto;
@@ -25,6 +30,13 @@ public class ProductoController {
 	@GetMapping("/producto/{id}")
 	public Producto getProductById(@PathVariable("id") Long id) {
 		return this.productoService.getProducto(id);
+	}
+	
+	@PostMapping("/producto")
+	public void createProducto(@RequestBody Producto producto, HttpServletRequest request, HttpServletResponse response) {
+		response.setHeader("Location", request.getRequestURL().
+				append("/").
+				append(this.productoService.createProducto(producto).getId()).toString());
 	}
 
 }
