@@ -26,31 +26,31 @@ public class ProductoController {
 	
 	@GetMapping("/producto")
 	public List<Producto> getAll() {
-		return this.productoService.getAllProductos();
+		return this.productoService.getAll();
 	}
 	
 	@GetMapping("/producto/{id}")
 	public Producto getProductById(@PathVariable("id") Long id) {
-		return this.productoService.getProducto(id);
+		return this.productoService.getById(id);
 	}
 	
 	@PostMapping("/producto")
 	public void createProducto(@RequestBody Producto producto, HttpServletRequest request, HttpServletResponse response) {
 		response.setHeader("Location", request.getRequestURL().
 				append("/").
-				append(this.productoService.createProducto(producto).getId()).toString());
+				append(this.productoService.create(producto).getId()).toString());
 	}
 	
 	@PutMapping("/producto/{id}")
 	public void updateProducto(@PathVariable("id") Long id,@RequestBody Producto producto) {
-		Producto update = this.productoService.getProducto(id);
+		Producto update = this.productoService.getById(id);
 		update.setName(producto.getName());
-		this.productoService.createProducto(update);
+		this.productoService.create(update);
 	}
 	
 	@DeleteMapping("/producto/{id}")
 	public void deleteProducto(@PathVariable("id") Long id) {
-		this.productoService.deleteProducto(id);
+		this.productoService.delete(id);
 	}
 
 }

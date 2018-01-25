@@ -16,28 +16,27 @@ public class ProductoService {
 	
 	public ProductoService() {}
 	
-	public Producto createProducto(Producto producto) {
+	public Producto create(Producto producto) {
 		return this.productoRepository.save(producto);
 	}
 	
-	public Producto getProducto(long id) {
-		return this.productoRepository.findOne(id);
-	}
-	
-	public List<Producto> getAllProductos(){
-		return (List<Producto>) this.productoRepository.findAll();
-	}
-	
-	public Producto findProductoByName(String name) {
-		return this.productoRepository.findProductoByName(name);
-	}
-	
-	public void updateProducto(Producto producto) {
+	public void update(Producto producto) {
 		this.productoRepository.save(producto);
 	}
 	
-	public void deleteProducto(long id) {
+	public void delete(long id) {
 		this.productoRepository.delete(id);
 	}
-
+	
+	public Producto getById(long id) {
+		return this.productoRepository.findOne(id);
+	}
+	
+	public List<Producto> getAll(){
+		return (List<Producto>) this.productoRepository.findAll();
+	}
+	
+	public Producto findByName(String name) {
+		return this.productoRepository.findProductByName(name);
+	}
 }
