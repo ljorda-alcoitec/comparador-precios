@@ -1,4 +1,4 @@
-package es.luciajorda.comparadorprecios.repostitory;
+package es.luciajorda.comparadorprecios.repository;
 
 import org.springframework.data.repository.CrudRepository;
 

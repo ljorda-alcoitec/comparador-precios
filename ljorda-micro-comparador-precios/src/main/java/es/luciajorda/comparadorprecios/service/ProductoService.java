@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import es.luciajorda.comparadorprecios.domain.Producto;
-import es.luciajorda.comparadorprecios.repostitory.ProductoRepository;
+import es.luciajorda.comparadorprecios.repository.ProductoRepository;
 
 @Service
 public class ProductoService {
