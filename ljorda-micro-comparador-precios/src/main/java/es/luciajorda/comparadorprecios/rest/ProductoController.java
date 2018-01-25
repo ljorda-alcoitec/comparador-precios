@@ -58,7 +58,6 @@ public class ProductoController {
 	@PutMapping("/producto/{id}")
 	public ResponseEntity<Producto> update(@PathVariable("id") Long id,@RequestBody Producto producto) {
 		Producto updateProducto = this.productoService.getById(id);
-		
 		if(updateProducto == null) {
 			return ResponseEntity.notFound().build();
 		}

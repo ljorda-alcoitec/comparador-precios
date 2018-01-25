@@ -13,6 +13,8 @@ public class VariedadService {
 
 	@Autowired VariedadRepository variedadRepository;
 	
+	public VariedadService() {}
+	
 	public Variedad create(Variedad variedad) {
 		return this.variedadRepository.save(variedad);
 	}
