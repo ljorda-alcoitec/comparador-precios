@@ -1,5 +1,7 @@
 package es.luciajorda.comparadorprecios.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +27,9 @@ public class VariedadService {
 	
 	public Variedad getById(long id) {
 		return this.variedadRepository.findOne(id);
+	}
+	
+	public List<Variedad> getAll(){
+		return (List<Variedad>) this.variedadRepository.findAll();
 	}
 }
